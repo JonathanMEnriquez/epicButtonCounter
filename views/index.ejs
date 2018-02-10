@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Epic Button!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document) .ready(function() {
+            var socket = io.connect();
+            console.log('connected')
+
+            $('#epic').click(function() {
+                console.log('button pressed!');
+                socket.emit('button_pressed');
+            })
+
+            $('#reset').click(function() {
+                console.log('reset pressed');
+                socket.emit('reset_pressed');
+            })
+
+            socket.on('count_incremented', function(data) {
+                console.log(data.count);
+                document.getElementById('header').innerHTML = "The Button has been pressed " + data.count + " times!";
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <h1 id="header">The Button has been pressed <%= count %> times!</h1>
+        <br>
+        <h4>Press the button</h4>
+        <button id="epic">Push the Epic Button!</button>
+        <div id="resetDiv">
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#wrapper {
+    background-color: gold;
+    height: 100%;
+    text-align: center;
+    padding: 50px;
+}
+
+#wrapper h4 {
+    margin-top: 25px;
+}
+
+#epic {
+    height: 100px;
+    background-color: purple;
+    color: white;
+    font-size: 32px;
+    width: 20%;
+    border: solid white;
+    border-width: 5px 5px;
+    border-radius: 15%;
+    margin-top: 20px;
+}
+
+#resetDiv {
+    margin-top: 40px;
+}
+
+#reset{
+    background-color: red;
+    width: 10%;
+    height: 50px;
+    color: white;
+    font-size: 32px;
+    border: solid black;
+    border-width: 2px 2px;
+    border-radius: 15%;
+}
